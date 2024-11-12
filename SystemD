@@ -1,0 +1,39 @@
+Creating Systemd Services and Timers(Basic)
+------------------------------------------
+
+Systemd Service
+- make your custom shell script/app available under command `systemctl`
+
+<filename>.service
+==================
+
+[Unit]
+Description=this value will be shown when using command `systemctl status <filename>.service`
+
+[Service]
+Type=oneshot
+ExecStart=<path/to/shell/script>.sh
+User=<user of the .sh file>
+Group=<user of the .sh file>
+
+Systemd Timer
+- used in conjunction with Systemd Service, works like crontab that triggers/runs scripts based on the schedule
+
+<filename>.timer
+================
+
+[Unit]
+Description=this value will be shown when using command `systemctl status <filename>.timer`
+
+[Timer]
+OnCalendar=Mon..Fri 00:00:00
+Unit=<filename>.service
+
+[Install]
+WantedBy=timers.target
+
+** note
+both of these file should be under <path/to/systemd/system/*> for it be readable
+
+run `sudo systemctl daemon-reload` command to make the custom service and timer to be recognized by systemctl.
+commands like systemctl start, stop, enable, disable, status, etc. should now be usable for the service and timer.
