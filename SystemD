@@ -1,3 +1,6 @@
+## https://systemd.io/
+## take the description with a grain of salt
+
 Creating Systemd Services and Timers(Basic)
 ------------------------------------------
 
@@ -26,7 +29,7 @@ Systemd Timer
 Description=this value will be shown when using command `systemctl status <filename>.timer`
 
 [Timer]
-OnCalendar=Mon..Fri 00:00:00
+OnCalendar=Mon..Fri 00:00:00 #refer to https://man.archlinux.org/man/systemd.time.7#CALENDAR_EVENTS
 Unit=<filename>.service
 
 [Install]
