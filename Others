@@ -1,0 +1,7 @@
+Others #####################
+
+#######Changing a remote machine's name
+```
+under the /etc/hostname file write the desired hostname
+under /etc/hostname file append the chosen hostname to localhost list
+```
